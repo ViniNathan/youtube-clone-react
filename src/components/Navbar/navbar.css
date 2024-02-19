@@ -1,0 +1,9 @@
+nav {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-rows: 1fr;
+}
+
+.nav-left {
+    grid-area: 1 / 1 / 2 / 2;
+}
