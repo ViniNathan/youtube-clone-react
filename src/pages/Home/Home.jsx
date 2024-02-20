@@ -41,6 +41,9 @@ const Home = () => {
       {videoData && videoData.map((video, index) => (
         <div key={index} className="video-card">
           <img src={video.thumbnails[2].url} alt="Thumbnail" className='thumbnail'/>
+          <div className="video-duration">
+              <p>{video.video_length}</p>
+          </div>
           <div className="video-details">
             <div className="channel-img">
               <img src={userProfile} alt="" />
