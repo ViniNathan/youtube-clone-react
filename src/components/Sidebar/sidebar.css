@@ -26,6 +26,9 @@
     padding: 0.5rem 1.3rem;
 }
 
+.homepage{ 
+    text-decoration: none;
+}
 .sidebar-card:hover {
     background-color: #1e1e1e;
     border-radius: 0.5rem;
@@ -42,5 +45,5 @@
 .side-icon {
     font-size: 1.4rem;
     cursor: pointer;
-    color: #fff;
+    color: white;
 }
