@@ -3,7 +3,7 @@
 nav {
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 0.2fr 1fr;
     padding: 0.5rem 2rem;
 }
 
@@ -132,4 +132,42 @@ nav {
     border-radius: 50%;
     margin-right: 1rem;
     cursor: pointer;
+}
+
+.input-suggestions {
+    grid-area: 2 / 2 / 3 / 3;
+    position: relative;
+    top: 0.3rem;
+    width: 90%;
+    background-color: rgb(34,34,34);
+    border: none;
+    border-radius: 0.8rem;
+
+    padding: 1.2rem 0 1.2rem;
+}
+
+.suggestions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.4rem 0;
+    cursor: pointer;
+
+    font-family: "Arial", sans-serif;
+    font-weight: 500;
+    font-size: medium;
+    color: aliceblue;
+
+    width: 100%;
+    background: transparent;
+    border: none;
+}
+
+.suggestions:hover {
+    background-color: rgb(48,48,48);
+}
+
+.sugg-icon {
+    margin: 0 1rem;
+    font-size: 1.2rem;
 }
