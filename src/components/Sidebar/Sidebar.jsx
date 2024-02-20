@@ -6,7 +6,7 @@ import './sidebar.css'
 
 const Sidebar = () => {
   return (
-    <sidebar>
+    <div className='sidebar'>
         <div className="sidebar-top">
             <div className="sidebar-card">
                 <GoHomeFill className='side-icon'/>
@@ -23,7 +23,7 @@ const Sidebar = () => {
                 <h3>Inscrições</h3>
             </div>
         </div>
-    </sidebar>
+    </div>
   )
 }
 
