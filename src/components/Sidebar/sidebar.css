@@ -1,0 +1,43 @@
+sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    transition: all 0.3s;
+    color: gray;
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.sidebar-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    margin: 0.4rem;
+    padding: 0.5rem 1.3rem;
+}
+
+.sidebar-card:hover {
+    background-color: #1e1e1e;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.sidebar-card > h3 {
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+
+}
+
+.side-icon {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #fff;
+}
