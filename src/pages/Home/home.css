@@ -17,7 +17,7 @@
 }
 
 .video-card {
-    height: max-content;
+    height: 340px;
     width: min-content;
     border-radius: 10px;
 }

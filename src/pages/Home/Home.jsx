@@ -1,33 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import userProfile from '../../assets/user_profile.jpg'
-import axios from "axios";
-import './home.css'
-
+import userProfile from '../../assets/user_profile.jpg';
+import './home.css';
+import { fetchVideoData } from '../../utils/home-api';
 
 const Home = () => {
   const [videoData, setVideoData] = useState(null);
 
+  // Função para formatar o número de visualizações
+  const formatViews = (views) => {
+    // Se as visualizações forem maiores ou iguais a um bilhão
+    if (views >= 1000000000) {
+      return (views / 1000000000).toFixed(1).replace('.', ',') + ' bi';
+    } 
+    // Se as visualizações forem maiores ou iguais a um milhão
+    else if (views >= 1000000) {
+      return (views / 1000000).toFixed(1).replace('.', ',') + ' mi';
+    } 
+    // Se as visualizações forem maiores ou iguais a mil
+    else if (views >= 1000) {
+      return (views / 1000).toFixed(1).replace('.', ',') + ' mil';
+    } 
+    // Caso contrário, retornar as visualizações como estão
+    else {
+      return views;
+    }
+  };
+
   useEffect(() => {
-    // Definindo os parâmetros da requisição à API
-    const options = {
-      method: 'GET',
-      url: 'https://youtube-v2.p.rapidapi.com/trending/',
-      params: {lang: 'pt', country: 'br', section: 'Now'},
-      headers: {
-        'X-RapidAPI-Key': '4373c0479dmshd60398751fc667cp1a0de0jsne460c0931c68',
-        'X-RapidAPI-Host': 'youtube-v2.p.rapidapi.com'
-      }
+    const fetchVideos = async () => {
+      const data = await fetchVideoData();
+      setVideoData(data);
     };
 
-    // Fazendo a chamada à API ao montar o componente
-    axios
-      .request(options)
-      .then(function (response) {
-        setVideoData(response.data.videos); // Ajustando para acessar a lista de vídeos
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    fetchVideos();
   }, []);
 
   return (
@@ -43,13 +48,12 @@ const Home = () => {
             <div className="details">
               <h3>{video.title}</h3>
               <p>{video.author}</p>
-              <p>{video.number_of_views} views</p>
+              <p>{formatViews(video.number_of_views)} visualizações</p>
             </div>
           </div>
         </div>
       ))}
     </div>
-
   );
 };
 
