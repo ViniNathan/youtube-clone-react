@@ -52,7 +52,7 @@ const Navbar = () => {
             <button key={index} className='suggestions'><IoIosSearch className='sugg-icon'/>{result}</button>
           ))}
         </div>
-      };
+      }
       <div className="nav-right">
         <img src={userProfile} />
       </div>
