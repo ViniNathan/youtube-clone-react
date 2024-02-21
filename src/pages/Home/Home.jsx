@@ -8,22 +8,14 @@ import './home.css';
 const Home = () => {
   const [videoData, setVideoData] = useState(null);
 
-  // Função para formatar o número de visualizações
   const formatViews = (views) => {
-    // Se as visualizações forem maiores ou iguais a um bilhão
     if (views >= 1000000000) {
       return (views / 1000000000).toFixed(1).replace('.', ',') + ' bi';
-    } 
-    // Se as visualizações forem maiores ou iguais a um milhão
-    else if (views >= 1000000) {
+    } else if (views >= 1000000) {
       return (views / 1000000).toFixed(1).replace('.', ',') + ' mi';
-    } 
-    // Se as visualizações forem maiores ou iguais a mil
-    else if (views >= 1000) {
+    } else if (views >= 1000) {
       return (views / 1000).toFixed(1).replace('.', ',') + ' mil';
-    } 
-    // Caso contrário, retornar as visualizações como estão
-    else {
+    } else {
       return views;
     }
   };
@@ -31,40 +23,56 @@ const Home = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       const data = await fetchVideoData();
-      setVideoData(data);
+      // Filtra os videos para garantir chaves unicas
+      const uniqueVideos = removeDuplicateVideos(data);
+      setVideoData(uniqueVideos);
     };
 
     fetchVideos();
   }, []);
 
+  // Funcao para remover videos duplicados com base no video_id
+  const removeDuplicateVideos = (videos) => {
+    const uniqueVideos = [];
+    const ids = new Set();
+
+    videos.forEach(video => {
+      if (!ids.has(video.video_id)) {
+        uniqueVideos.push(video);
+        ids.add(video.video_id);
+      }
+    });
+
+    return uniqueVideos;
+  };
+
   return (
-  <div>
-    <Sidebar/>
-    <div className="home-video-container">
-    {/* Renderizando cada vídeo individualmente */}
-    {videoData && videoData.map((video, index) => (
-      <Link to={`/video/${video.video_id}`} className="home-video-links">
-      <div key={index} className="video-card">
-        <img src={video.thumbnails[2].url} alt="Thumbnail" className='thumbnail'/>
-        <div className="video-duration">
-            <p>{video.video_length}</p>
-        </div>
-        <div className="video-details">
-          <div className="channel-img">
-            <img src={userProfile} alt="" />
-          </div>
-          <div className="details">
-            <h3>{video.title}</h3>
-            <p>{video.author}</p>
-            <p>{formatViews(video.number_of_views)} visualizações</p>
-          </div>
-        </div>
+    <div>
+      <Sidebar />
+      <div className="home-video-container">
+        {videoData && videoData.map((video) => (
+          <Link key={video.video_id} to={`/video/${video.video_id}`} className="home-video-links">
+            <div className="video-card">
+              <img src={video.thumbnails[2].url} alt="Thumbnail" className='thumbnail' />
+              <div className="video-duration">
+                  <p>{video.video_length}</p>
+              </div>
+              <div className="video-details">
+                <div className="channel-img">
+                  <img src={userProfile} alt="" />
+                </div>
+                <div className="details">
+                  <h3>{video.title}</h3>
+                  <p>{video.author}</p>
+                  <p>{formatViews(video.number_of_views)} visualizações</p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
-      </Link>
-    ))}
     </div>
-  </div>
-);
+  );
 };
 
 export default Home;
