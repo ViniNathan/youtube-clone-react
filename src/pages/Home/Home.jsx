@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Sidebar from '../../components/Sidebar/Sidebar';
 import userProfile from '../../assets/user_profile.jpg';
 import { Link } from 'react-router-dom';
 import { fetchVideoData } from '../../utils/home-api';
@@ -37,6 +38,8 @@ const Home = () => {
   }, []);
 
   return (
+  <div>
+    <Sidebar/>
     <div className="home-video-container">
     {/* Renderizando cada vídeo individualmente */}
     {videoData && videoData.map((video, index) => (
@@ -59,6 +62,7 @@ const Home = () => {
       </div>
       </Link>
     ))}
+    </div>
   </div>
 );
 };
