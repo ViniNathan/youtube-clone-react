@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import userProfile from '../../assets/user_profile.jpg';
-import './home.css';
+import { Link } from 'react-router-dom';
 import { fetchVideoData } from '../../utils/home-api';
+import './home.css';
 
 const Home = () => {
   const [videoData, setVideoData] = useState(null);
@@ -37,27 +38,29 @@ const Home = () => {
 
   return (
     <div className="home-video-container">
-      {/* Renderizando cada vídeo individualmente */}
-      {videoData && videoData.map((video, index) => (
-        <div key={index} className="video-card">
-          <img src={video.thumbnails[2].url} alt="Thumbnail" className='thumbnail'/>
-          <div className="video-duration">
-              <p>{video.video_length}</p>
+    {/* Renderizando cada vídeo individualmente */}
+    {videoData && videoData.map((video, index) => (
+      <Link to={`/video/${video.video_id}`} className="home-video-links">
+      <div key={index} className="video-card">
+        <img src={video.thumbnails[2].url} alt="Thumbnail" className='thumbnail'/>
+        <div className="video-duration">
+            <p>{video.video_length}</p>
+        </div>
+        <div className="video-details">
+          <div className="channel-img">
+            <img src={userProfile} alt="" />
           </div>
-          <div className="video-details">
-            <div className="channel-img">
-              <img src={userProfile} alt="" />
-            </div>
-            <div className="details">
-              <h3>{video.title}</h3>
-              <p>{video.author}</p>
-              <p>{formatViews(video.number_of_views)} visualizações</p>
-            </div>
+          <div className="details">
+            <h3>{video.title}</h3>
+            <p>{video.author}</p>
+            <p>{formatViews(video.number_of_views)} visualizações</p>
           </div>
         </div>
-      ))}
-    </div>
-  );
+      </div>
+      </Link>
+    ))}
+  </div>
+);
 };
 
 export default Home;
