@@ -44,6 +44,7 @@
     grid-template-rows: 1fr;
     padding: 0.5rem 0.4rem;
     margin: 0;
+    margin-top: 0.8rem;
 }
 
 .channel-img {
@@ -90,7 +91,7 @@
     align-items: center;
     position: relative;
     z-index: 2;
-    top: -2.5rem;
+    top: -1.7rem;
     right: 0.2rem;
     margin-bottom: -2rem;
 }
