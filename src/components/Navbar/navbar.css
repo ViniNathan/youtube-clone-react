@@ -76,44 +76,43 @@ nav {
 
 .nav-input {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-
     width: 100%;
     height: 2.5rem;
     border-radius: 2rem;
-    border: 0.5px solid rgb(48,48,48);
-    background-color: rgb(18, 18, 18);
+    background-color: rgb(34,34,34);
 }
 
 .nav-input > input {
-    margin-left: 1rem;
+    padding-left: 1.1rem;
+    border-radius: 2rem 0rem 0rem 2rem;
     width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border: none;
+    height: 36px;
+    border: 0.5px solid rgb(48,48,48);
     color: white;
     font-size: 1rem;
     font-weight: 200;
     font-family: "Arial", sans-serif;
+    background-color: rgb(18, 18, 18);
 }
 
 .nav-input > input:focus{
     box-shadow: 0 0 0 0;
-    border: 0 none;
+    border: 0.5px solid rgb(2, 61, 150);
     outline: 0;
 }
 
 .nav-input > button {
-    background-color: rgb(34,34,34);
-    border: transparent;
+    background-color: transparent;
+    border: 0.5px solid rgb(48,48,48);
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
-    color: rgb(241,241,241);
+    color: rgba(241, 241, 241, 0.747);
     font-size: 1.5rem;
     cursor: pointer;
     height: 100%;
-    width: 4rem;
+    width: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
