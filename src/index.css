@@ -2,3 +2,15 @@ body {
     background-color: rgb(15,15,15);
     margin: 0;
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #333; 
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece {
+  background-color: #222;
+}
+
