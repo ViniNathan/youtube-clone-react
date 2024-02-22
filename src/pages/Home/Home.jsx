@@ -50,10 +50,14 @@ const Home = () => {
     <div>
       <Sidebar />
       <div className="home-video-container">
-        {videoData && videoData.map((video) => (
+        {videoData && videoData.slice(0, 12).map((video) => (
           <Link key={video.video_id} to={`/video/${video.video_id}`} className="home-video-links">
             <div className="video-card">
-              <img src={video.thumbnails[2].url} alt="Thumbnail" className='thumbnail' />
+              <img
+                src={`https://i.ytimg.com/vi/${video.video_id}/maxresdefault.jpg`}
+                alt="Thumbnail"
+                className='thumbnail'
+                />
               <div className="video-duration">
                   <p>{video.video_length}</p>
               </div>
@@ -64,7 +68,7 @@ const Home = () => {
                 <div className="details">
                   <h3>{video.title}</h3>
                   <p>{video.author}</p>
-                  <p>{formatViews(video.number_of_views)} visualizações</p>
+                  <p>{formatViews(video.number_of_views)} visualizações • {video.published_time}</p>
                 </div>
               </div>
             </div>
