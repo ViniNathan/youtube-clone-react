@@ -16,7 +16,6 @@ const Video = () => {
       try {
         const videoData = await fetchVideoDetails(videoId);
         setVideoDetails(videoData);
-        console.log(videoData);
 
         // Obtém os detalhes do canal usando o channelId do video
         const channelData = await fetchChannelDetails(videoData.channelId);
@@ -42,7 +41,7 @@ const Video = () => {
           <div className="video-screen"></div>
           <div className="video-title">{videoDetails.title}</div>
           <div className="video-channel">
-            <img src={user_profile} alt="" />
+            <img src={channelDetails.avatar[2].url} alt="" />
           </div>
           <div className="channel-details">
             <h3>{videoDetails.channelTitle}</h3>
@@ -52,7 +51,7 @@ const Video = () => {
           <div className="btn-container">
             <button className="like">
               <BiLike />
-              <p>{videoDetails.likeCount}</p>
+              <p>Like</p>
             </button>
             <div className="separator"></div>
             <button className="dislike">
@@ -68,8 +67,8 @@ const Video = () => {
             <div className="videos-card"></div>
           </div>
           <div className="video-description">
-          <h4>{videoDetails.viewCount} Visualizações {formatDate(videoDetails.publishDate)}</h4>
-            {videoDetails.description.split(/\s+/).map((word, index, array) => {
+          <h4>{videoDetails.viewCount} Visualizações • {formatDate(videoDetails.publishDate)}</h4>
+            {videoDetails.description.split(/\s+/).map((word, index) => {
               if (/^https?:\/\/\S+$/.test(word)) {
                 return (
                   <span key={index}>
