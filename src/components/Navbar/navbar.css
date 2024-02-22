@@ -89,7 +89,7 @@ nav {
     border-radius: 2rem 0rem 0rem 2rem;
     width: 100%;
     height: 36px;
-    border: 0.5px solid rgb(48,48,48);
+    border: 0.5px solid rgb(71, 71, 71);
     color: white;
     font-size: 1rem;
     font-weight: 200;
@@ -105,7 +105,8 @@ nav {
 
 .nav-input > button {
     background-color: transparent;
-    border: 0.5px solid rgb(48,48,48);
+    border: 0.5px solid rgb(71, 71, 71);
+    border-left-color: transparent;
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
     color: rgba(241, 241, 241, 0.747);
