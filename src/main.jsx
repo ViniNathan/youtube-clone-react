@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider,} from "react-router-dom";
-import { Home, Shorts, Video } from './pages/index.js'
+import { Home, Shorts, Video, Search } from './pages/index.js'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/video/:videoId',
         element: <Video />
+      },
+      {
+        path: '/search/:searchQuery',
+        element: <Search />
       },
     ]
   },
