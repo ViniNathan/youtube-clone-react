@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { BiLike, BiDislike } from 'react-icons/bi';
 import { PiShareFatLight } from 'react-icons/pi';
 import VideoCard from '../../components/videoSuggestionCard/VideoCard';
+import CommentCard from '../../components/commentCard/CommentCard';
 import { fetchVideoDetails, fetchChannelDetails } from '../../utils/videoServiceApi';
 import './video.css';
 
@@ -86,7 +87,13 @@ const Video = () => {
               }
             })}
         </div>
-          <div className="comments-section"></div>
+          <div className="comments-section">
+            <h3>NUMERO comentários</h3>
+            <CommentCard />
+            <CommentCard />
+            <CommentCard />
+            <CommentCard />
+          </div>
         </>
       ) : (
         <p className='loading'>Carregando...</p>
