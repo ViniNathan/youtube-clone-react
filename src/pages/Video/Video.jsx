@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BiLike, BiDislike } from 'react-icons/bi';
 import { PiShareFatLight } from 'react-icons/pi';
+import VideoCard from '../../components/videoSuggestionCard/VideoCard';
 import { fetchVideoDetails, fetchChannelDetails } from '../../utils/videoServiceApi';
 import './video.css';
 
@@ -63,7 +64,10 @@ const Video = () => {
           </button>
 
           <div className="related-videos">
-            <div className="videos-card"></div>
+            <VideoCard/>
+            <VideoCard/>
+            <VideoCard/>
+            <VideoCard/>
           </div>
           <div className="video-description">
           <h4>{videoDetails.viewCount} Visualizações • {formatDate(videoDetails.publishDate)}</h4>
