@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BiLike, BiDislike } from 'react-icons/bi';
 import { PiShareFatLight } from 'react-icons/pi';
-import user_profile from '../../assets/user_profile.jpg';
 import { fetchVideoDetails, fetchChannelDetails } from '../../utils/videoServiceApi';
 import './video.css';
 
