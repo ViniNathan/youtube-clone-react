@@ -8,12 +8,14 @@ import './search.css'
 const Search = () => {
   const [searchDetails, setSearchDetails] = useState(null);
   const { query } = useParams(); // Obtém a query da URL
+  console.log('query:', query);
 
   useEffect(() => {
     const getSearchData = async () => {
       try {
         const searchData = await fetchSearch(query);
         setSearchDetails(searchData);
+        console.log('searchData:', searchData);
       } catch (error) {
         console.error('Erro ao buscar os detalhes da pesquisa:', error);
       }
