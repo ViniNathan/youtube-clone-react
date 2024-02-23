@@ -17,6 +17,7 @@ const Video = () => {
       try {
         const videoData = await fetchVideoDetails(videoId);
         setVideoDetails(videoData);
+        console.log(videoData.id)
 
         // Obtém os detalhes do canal usando o channelId do video
         const channelData = await fetchChannelDetails(videoData.channelId);
@@ -39,7 +40,9 @@ const Video = () => {
     <div className="videopage-grid">
       {videoDetails && channelDetails ? (
         <>
-          <div className="video-screen"></div>
+          <div className="video-screen">
+            <iframe src={`https://www.youtube.com/embed/${videoId}?autoplay=1&showinfo=0&controls=0&autohid=1`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+          </div>
           <div className="video-title">{videoDetails.title}</div>
           <div className="video-channel">
             <img src={channelDetails.avatar[2].url} alt="" />
