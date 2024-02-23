@@ -26,6 +26,8 @@ const Home = () => {
       // Filtra os videos para garantir chaves unicas
       const uniqueVideos = removeDuplicateVideos(data);
       setVideoData(uniqueVideos);
+      const ids = (uniqueVideos.slice(0, 12).map((video) => video.video_id));
+      console.log(ids);
     };
 
     fetchVideos();
@@ -45,6 +47,7 @@ const Home = () => {
 
     return uniqueVideos;
   };
+  
 
   return (
     <div>
@@ -63,7 +66,7 @@ const Home = () => {
               </div>
               <div className="video-details">
                 <div className="channel-img">
-                  <img src={userProfile} alt="" />
+                  <img src={userProfile}/>
                 </div>
                 <div className="details">
                   <h3>{video.title}</h3>
