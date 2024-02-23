@@ -4,6 +4,10 @@ export const fetchVideoDetails = async (videoId) => {
   const options = {
     method: 'GET',
     url: `https://yt-api.p.rapidapi.com/video/info?id=${videoId}`,
+    params: {
+      geo: 'BR',
+      lang: 'pt'
+    },
     headers: {
       'X-RapidAPI-Key': '4373c0479dmshd60398751fc667cp1a0de0jsne460c0931c68',
       'X-RapidAPI-Host': 'yt-api.p.rapidapi.com'
@@ -46,7 +50,8 @@ export const fetchSearch = async (query) => {
     url: `https://yt-api.p.rapidapi.com/search?query=${query}`,
     params: {
       geo: 'BR',
-      lang: 'pt'
+      lang: 'pt',
+      type: 'video',
     },
     headers: {
       'X-RapidAPI-Key': '4373c0479dmshd60398751fc667cp1a0de0jsne460c0931c68',

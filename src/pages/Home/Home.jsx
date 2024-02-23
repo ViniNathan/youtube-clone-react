@@ -23,6 +23,7 @@ const Home = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       const data = await fetchVideoData();
+      console.log(data)
       // Filtra os videos para garantir chaves unicas
       const uniqueVideos = removeDuplicateVideos(data);
       setVideoData(uniqueVideos);

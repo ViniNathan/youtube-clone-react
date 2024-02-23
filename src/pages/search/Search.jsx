@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetchSearch } from '../../utils/videoServiceApi'
-import SearchVideoCard from '../../components/SearchVideoCard/SearchVideoCard'
-import Sidebar from '../../components/Sidebar/Sidebar'
-import './search.css'
+import { fetchSearch } from '../../utils/videoServiceApi';
+import SearchVideoCard from '../../components/SearchVideoCard/SearchVideoCard';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import './search.css';
 
 const Search = () => {
   const [searchDetails, setSearchDetails] = useState(null);
-  const { query } = useParams(); // Obtém a query da URL
-  console.log('query:', query);
+  const path = window.location.pathname;
+  const query = path.split('/').pop();
 
   useEffect(() => {
     const getSearchData = async () => {
       try {
         const searchData = await fetchSearch(query);
         setSearchDetails(searchData);
-        console.log('searchData:', searchData);
+        console.log(searchDetails)
       } catch (error) {
         console.error('Erro ao buscar os detalhes da pesquisa:', error);
       }
@@ -24,18 +23,42 @@ const Search = () => {
     getSearchData();
   }, [query]);
 
+  const formatViews = (views) => {
+    if (views >= 1000000000) {
+      return (views / 1000000000).toFixed(1).replace('.', ',') + ' bi de';
+    } else if (views >= 1000000) {
+      return (views / 1000000).toFixed(1).replace('.', ',') + ' mi de';
+    } else if (views >= 1000) {
+      return (views / 1000).toFixed(1).replace('.', ',') + ' mil';
+    } else {
+      return views;
+    }
+  };
 
   return (
     <div>
-        <Sidebar/>
-        <div className="search-container">
-            <SearchVideoCard/>
-            <SearchVideoCard/>
-            <SearchVideoCard/>
-            <SearchVideoCard/>
-        </div>
+      <Sidebar/>
+      <div className="search-container">
+        {searchDetails && searchDetails.data.map(video => (
+          // Renderiza somente se o tipo do conteudo for 'video'
+          video.type === 'video' && (
+            <SearchVideoCard
+              key={video.videoId}
+              thumb={video.thumbnail[0].url}
+              time={video.publishedTimeText}
+              channelTitle={video.channelTitle}
+              channelImg={video.channelThumbnail[0].url}
+              videoTitle={video.title}
+              views={formatViews(video.viewCount)}
+              videoDescription={video.description}
+              videoId={video.videoId}
+              channelId={video.channelId}
+            />
+          )
+        ))}
+      </div>
     </div>
   )
 }
 
-export default Search
+export default Search;

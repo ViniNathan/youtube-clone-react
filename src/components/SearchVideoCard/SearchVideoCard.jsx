@@ -1,22 +1,21 @@
 import React from 'react'
-import Thumbnail from '../../assets/thumbnail1.png'
-import ChannelImg from '../../assets/user_profile.jpg'
+import { Link } from 'react-router-dom' 
 import './searchVideoCard.css'
 
-const SearchVideoCard = () => {
+const SearchVideoCard = ({thumb, time, channelTitle, channelImg ,videoTitle, views, videoDescription, videoId, channelId}) => {
   return (
     <div className="search-card">
-      <div className="search-card__thumbnail">
-        <img src={Thumbnail} alt="thumbnail" />
-      </div>
+      <Link to ={`../video/${videoId}`} className="search-card__thumbnail">
+        <img src={thumb} alt="thumbnail" />
+      </Link>
       <div className="search-card__details">
-        <h3>Título do vídeo</h3>
-        <p>Views • Time</p>
-        <div className="search-channel-details">
-          <img src={ChannelImg} alt="" />
-          <h3>Channel name</h3>
-        </div>
-        <p>Description</p>
+        <Link to ={`../video/${videoId}`}>{videoTitle}</Link>
+        <p>{views} visualizações • {time}</p>
+        <Link to={`../channel/${channelId}`} className="search-channel-details">
+          <img src={channelImg} alt="" />
+          <p className='channel-name'>{channelTitle}</p>
+        </Link>
+        <p>{videoDescription}</p>
       </div>
     </div>
   )
