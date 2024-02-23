@@ -55,7 +55,7 @@ const Navbar = () => {
 
       <div className="nav-center">
         <div className="nav-input">
-          <input type="text" placeholder='Pesquisar' value={query} onChange={handleInputChange} onKeyDown={handleKeyPress}/>
+          <input id="search" type="text" placeholder='Pesquisar' value={query} onChange={handleInputChange} onKeyDown={handleKeyPress}/>
           <button onClick={handleSearch}><IoIosSearch/></button>
         </div>
       </div>
