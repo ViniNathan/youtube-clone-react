@@ -52,7 +52,7 @@ const Search = () => {
               views={formatViews(video.viewCount)}
               videoDescription={video.description}
               videoId={video.videoId}
-              channelId={video.channelId}
+              channelId={video.channelHandle}
             />
           )
         ))}

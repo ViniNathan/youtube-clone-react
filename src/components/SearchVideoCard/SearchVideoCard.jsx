@@ -11,10 +11,10 @@ const SearchVideoCard = ({thumb, time, channelTitle, channelImg ,videoTitle, vie
       <div className="search-card__details">
         <Link to ={`../video/${videoId}`}>{videoTitle}</Link>
         <p>{views} visualizações • {time}</p>
-        <Link to={`../channel/${channelId}`} className="search-channel-details">
+        <a href={`https://youtube.com/${channelId}`} className="search-channel-details" target='_blank'>
           <img src={channelImg} alt="" />
           <p className='channel-name'>{channelTitle}</p>
-        </Link>
+        </a>
         <p>{videoDescription}</p>
       </div>
     </div>
