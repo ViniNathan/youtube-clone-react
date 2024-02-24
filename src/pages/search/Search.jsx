@@ -14,7 +14,6 @@ const Search = () => {
       try {
         const searchData = await fetchSearch(query);
         setSearchDetails(searchData);
-        console.log(searchDetails)
       } catch (error) {
         console.error('Erro ao buscar os detalhes da pesquisa:', error);
       }

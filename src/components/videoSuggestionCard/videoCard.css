@@ -3,6 +3,7 @@
     grid-template-columns: 170px 1fr;
     grid-template-rows: 50px 50px;
     width: 100%;
+    margin-bottom: 0.5rem;
 }
 
 .video-suggest-thumb{
@@ -20,21 +21,20 @@
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: rgb(255, 255, 255);
+    text-decoration: none;
 }
 
 .suggest-details {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-
-
 }
 
 .suggest-details p {
@@ -42,7 +42,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
     font-weight: 400;
-    color: rgb(255, 255, 255);
+    color: rgb(109, 109, 109);
 }
 
 .video-length {
