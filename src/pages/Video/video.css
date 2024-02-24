@@ -1,13 +1,14 @@
 .videopage-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr 0.1fr 0.1fr 0.5fr 0.1fr 1fr;
+    grid-template-rows: 38vw 2.5rem max-content max-content max-content max-content;
     margin-left: 2rem;
     margin-top: -1.5rem;
 }
 
 .video-screen{
     grid-column: 1 / 5;
+    height: 37vw;
 }
 
 .video-screen iframe {
@@ -209,7 +210,7 @@
 
 .video-description {
     grid-column: 1 / 5;
-    grid-row: 4 / 5;
+    height: max-content;
     margin: 1rem 1rem 1rem 0;
     padding: 0.8rem;
     background: rgb(39,39,39);
@@ -240,7 +241,7 @@
     grid-column: 5 / 7;
     grid-row: 1 / 7;
     padding: 0;
-    margin: 0 3rem 0 1rem;
+    margin: 0 2rem 0 1rem;
 
     display: flex;
     flex-direction: column;
@@ -251,8 +252,7 @@
 
 .comments-section {
     grid-column: 1 / 5;
-    grid-row: 5 / 7;
-
+    height: max-content;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

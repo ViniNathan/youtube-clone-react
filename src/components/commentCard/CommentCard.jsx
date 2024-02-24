@@ -1,25 +1,24 @@
 import React from 'react'
-import userProfile from '../../assets/user_profile.jpg'
 import { BiLike, BiDislike } from 'react-icons/bi';
 import './commentCard.css'
 
-const CommentCard = () => {
+const CommentCard = ({authorText, authorThumbnail, textDisplay, publishedTimeText}) => {
   return (
     <div className="comment-card">
         <div className="profile-img">
-            <img src={userProfile} alt="" />
+            <img src={authorThumbnail} alt="" />
         </div>
         <div className="comment-details">
             <div className="profile-title">
-                <p>Nome do Usuário</p>
-                <p>Tempo</p>
+                <p>{authorText}</p>
+                <p>{publishedTimeText}</p>
             </div>
             <div className="comment-text">
-                <p>Comentário do usuário</p>
+                <p>{textDisplay}</p>
             </div>
             <div className="comment-actions">
                 <BiLike className='c-icon'/>
-                <p>numero</p>
+                <p>{likesCount}</p>
                 <BiDislike className='c-icon'/>
             </div>
         </div>
