@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchSearch } from '../../utils/videoServiceApi';
 import SearchVideoCard from '../../components/SearchVideoCard/SearchVideoCard';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import { formatViews } from '../../utils/functions';
 import './search.css';
 
 const Search = () => {
@@ -22,18 +23,6 @@ const Search = () => {
 
     getSearchData();
   }, [query]);
-
-  const formatViews = (views) => {
-    if (views >= 1000000000) {
-      return (views / 1000000000).toFixed(1).replace('.', ',') + ' bi de';
-    } else if (views >= 1000000) {
-      return (views / 1000000).toFixed(1).replace('.', ',') + ' mi de';
-    } else if (views >= 1000) {
-      return (views / 1000).toFixed(1).replace('.', ',') + ' mil';
-    } else {
-      return views;
-    }
-  };
 
   return (
     <div>
