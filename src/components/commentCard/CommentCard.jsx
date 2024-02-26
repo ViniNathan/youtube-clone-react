@@ -2,7 +2,7 @@ import React from 'react'
 import { BiLike, BiDislike } from 'react-icons/bi';
 import './commentCard.css'
 
-const CommentCard = ({authorText, authorThumbnail, textDisplay, publishedTimeText}) => {
+const CommentCard = ({authorName, authorThumbnail, textDisplay, publishedTimeText, likesCount}) => {
   return (
     <div className="comment-card">
         <div className="profile-img">
@@ -10,7 +10,7 @@ const CommentCard = ({authorText, authorThumbnail, textDisplay, publishedTimeTex
         </div>
         <div className="comment-details">
             <div className="profile-title">
-                <p>{authorText}</p>
+                <p>{authorName}</p>
                 <p>{publishedTimeText}</p>
             </div>
             <div className="comment-text">
