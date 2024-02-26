@@ -5,7 +5,7 @@ import { PiShareFatLight } from 'react-icons/pi';
 import VideoCard from '../../components/videoSuggestionCard/VideoCard';
 import CommentCard from '../../components/commentCard/CommentCard';
 import { fetchVideoDetails, fetchChannelDetails, fetchRelated, fetchComments} from '../../utils/videoServiceApi';
-import { formatViews } from '../../utils/functions';
+import { formatViews, formatDate } from '../../utils/functions';
 import './video.css';
 
 const Video = () => {
@@ -40,11 +40,7 @@ const Video = () => {
     getVideoDetails();
   }, [videoId]);
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = { day: 'numeric', month: 'long', year: 'numeric' };
-    return date.toLocaleDateString('pt-BR', options);
-  };
+
 
   return (
     <div className="videopage-grid">
