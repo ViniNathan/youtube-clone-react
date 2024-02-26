@@ -5,6 +5,7 @@ import { PiShareFatLight } from 'react-icons/pi';
 import VideoCard from '../../components/videoSuggestionCard/VideoCard';
 import CommentCard from '../../components/commentCard/CommentCard';
 import { fetchVideoDetails, fetchChannelDetails, fetchRelated, fetchComments} from '../../utils/videoServiceApi';
+import { formatViews } from '../../utils/functions';
 import './video.css';
 
 const Video = () => {
@@ -31,7 +32,6 @@ const Video = () => {
         // Obtém os comentários
         const commentsData = await fetchComments(videoId);
         setCommentsDetails(commentsData);
-        console.log(commentsData);
       } catch (error) {
         console.error('Erro ao buscar os detalhes do vídeo:', error);
       }
@@ -46,18 +46,6 @@ const Video = () => {
     return date.toLocaleDateString('pt-BR', options);
   };
 
-  const formatViews = (views) => {
-    if (views >= 1000000000) {
-      return (views / 1000000000).toFixed(1).replace('.', ',') + ' bi de';
-    } else if (views >= 1000000) {
-      return (views / 1000000).toFixed(1).replace('.', ',') + ' mi de';
-    } else if (views >= 1000) {
-      return (views / 1000).toFixed(1).replace('.', ',') + ' mil';
-    } else {
-      return views;
-    }
-  };
-
   return (
     <div className="videopage-grid">
       {videoDetails && channelDetails && relatedDetails && commentsDetails? (
@@ -67,7 +55,7 @@ const Video = () => {
           </div>
           <div className="video-title">{videoDetails.title}</div>
           <div className="video-channel">
-            <img src={channelDetails.avatar[2].url} alt="" />
+            <img src={videoDetails.channelThumbnail[2].url} alt="" />
           </div>
           <div className="channel-details">
             <h3>{videoDetails.channelTitle}</h3>
@@ -124,8 +112,17 @@ const Video = () => {
             })}
         </div>
           <div className="comments-section">
-            <h3>NUMERO comentários</h3>
-            <CommentCard/>
+            <h3>{commentsDetails.commentsCount} comentários</h3>
+            {commentsDetails.data.map((comments) => (
+              <CommentCard
+                key={comments.videoId}
+                authorName={comments.authorText}
+                authorThumbnail={comments.authorThumbnail[0].url}
+                textDisplay={comments.textDisplay}
+                publishedTimeText={comments.publishedTimeText}
+                likesCount={comments.likesCount}
+              />
+            ))}
           </div>
         </>
       ) : (

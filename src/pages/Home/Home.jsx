@@ -3,22 +3,11 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import userProfile from '../../assets/user_profile.jpg';
 import { Link } from 'react-router-dom';
 import { fetchVideoData } from '../../utils/home-api';
+import { formatViews } from '../../utils/functions';
 import './home.css';
 
 const Home = () => {
   const [videoData, setVideoData] = useState(null);
-
-  const formatViews = (views) => {
-    if (views >= 1000000000) {
-      return (views / 1000000000).toFixed(1).replace('.', ',') + ' bi';
-    } else if (views >= 1000000) {
-      return (views / 1000000).toFixed(1).replace('.', ',') + ' mi';
-    } else if (views >= 1000) {
-      return (views / 1000).toFixed(1).replace('.', ',') + ' mil';
-    } else {
-      return views;
-    }
-  };
 
   useEffect(() => {
     const fetchVideos = async () => {

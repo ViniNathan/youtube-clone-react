@@ -14,6 +14,7 @@ const Search = () => {
       try {
         const searchData = await fetchSearch(query);
         setSearchDetails(searchData);
+        console.log(searchData);
       } catch (error) {
         console.error('Erro ao buscar os detalhes da pesquisa:', error);
       }
@@ -51,7 +52,7 @@ const Search = () => {
               views={formatViews(video.viewCount)}
               videoDescription={video.description}
               videoId={video.videoId}
-              channelId={video.channelHandle}
+              channelId={video.channelHandle ? video.channelHandle : `/channel/${video.channelId}`}
             />
           )
         ))}
