@@ -7,7 +7,7 @@ export const fetchVideoDetails = async (videoId) => {
     params: {
       geo: 'BR',
       lang: 'pt',
-      extend: 'likeCount'
+      extend: '2'
     },
     headers: {
       'X-RapidAPI-Key': '4373c0479dmshd60398751fc667cp1a0de0jsne460c0931c68',
