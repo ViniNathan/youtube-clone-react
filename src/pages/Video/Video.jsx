@@ -51,7 +51,9 @@ const Video = () => {
           </div>
           <div className="video-title">{videoDetails.title}</div>
           <div className="video-channel">
-            <a href={channelDetails.channelHandle `https://www.youtube.com/${channelDetails.channelHandle}` ? channelDetails.channelId: `https://www.youtube.com/${channelDetails.channelId}`}><img src={videoDetails.channelThumbnail[2].url} alt="" /></a>
+            <a href={`https://www.youtube.com/${channelDetails.channelHandle ? channelDetails.channelHandle : channelDetails.channelId}`}>
+            <img src={videoDetails.channelThumbnail[2].url} alt="" />
+            </a>
           </div>
           <div className="channel-details">
             <a href={`https://www.youtube.com/${channelDetails.channelHandle}`}><h3>{videoDetails.channelTitle}</h3></a>
