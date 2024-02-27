@@ -3,6 +3,7 @@ import { fetchSearch } from '../../utils/videoServiceApi';
 import SearchVideoCard from '../../components/SearchVideoCard/SearchVideoCard';
 import SearchShortsCard from '../../components/SearchShortsCard/SearchShortsCard';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import { SiYoutubeshorts } from "react-icons/si";
 import { formatViews, truncateString } from '../../utils/functions';
 import './search.css';
 
@@ -49,7 +50,12 @@ const Search = () => {
           // Renderiza componentes de shorts em seguida
           else if (content.type === 'shorts_listing') {
             return (
-              <div className="shorts-container" key={content.type}>
+              <div className="shorts-wrapper">
+                <div className="shorts-details">
+                <SiYoutubeshorts className="shorts-icon" />
+                <h2>Shorts</h2>
+                </div>
+                <div className="shorts-container" key={content.type}>
                 {content.data.slice(0, getNumberOfShortsToShow()).map(short => (
                   <SearchShortsCard
                     key={short.videoId}
@@ -59,6 +65,7 @@ const Search = () => {
                     shortsId={short.videoId}
                   />
                 ))}
+              </div>
               </div>
             );
           }
@@ -74,8 +81,8 @@ const Search = () => {
     // Define o número de shorts com base na largura da tela
     if (screenWidth < 768) {
       return 3; // Exibe 3 shorts para telas menores que 768px
-    } else if (screenWidth < 1024) {
-      return 5; // Exibe 5 shorts para telas entre 768px e 1024px
+    } else if (screenWidth < 1366) {
+      return 4; // Exibe 5 shorts para telas entre 768px e 1024px
     } else {
       return 5; // Exibe 7 shorts para telas maiores que 1024px
     }
