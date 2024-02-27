@@ -30,7 +30,9 @@ const Navbar = () => {
   };
 
   const handleSearch = () => {
-    window.location.href = `/search/${query}`;
+    if (query.trim() !== '') { // Verifica se o campo de input nao esta vazio 
+      window.location.href = `/search/${query}`;
+    }
   };
 
   const handleKeyPress = (event) => {
