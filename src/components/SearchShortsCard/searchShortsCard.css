@@ -1,6 +1,12 @@
 .search-shorts-card {
     width: 215px;
-    height: 100%;
+    height: 105%;
+    border-radius: 6px;
+}
+
+.search-shorts-thumbnail {
+    width: 100%;
+    height: 386px;
     border-radius: 6px;
 }
 
