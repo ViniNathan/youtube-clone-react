@@ -8,7 +8,7 @@
 
 .video-screen{
     grid-column: 1 / 5;
-    height: 36vw;
+    height: max-content;
 }
 
 .video-screen iframe {
@@ -62,8 +62,10 @@
 .channel-details h3, p {
     margin: 0;
 }
-
-.channel-details h3 {
+.channel-details > a {
+    text-decoration: none;
+}
+.channel-details > a > h3 {
     font-size: 1rem;
     font-weight: 500;
     color: white;

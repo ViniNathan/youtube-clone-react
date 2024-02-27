@@ -51,10 +51,10 @@ const Video = () => {
           </div>
           <div className="video-title">{videoDetails.title}</div>
           <div className="video-channel">
-            <img src={videoDetails.channelThumbnail[2].url} alt="" />
+            <a href={channelDetails.channelHandle `https://www.youtube.com/${channelDetails.channelHandle}` ? channelDetails.channelId: `https://www.youtube.com/${channelDetails.channelId}`}><img src={videoDetails.channelThumbnail[2].url} alt="" /></a>
           </div>
           <div className="channel-details">
-            <h3>{videoDetails.channelTitle}</h3>
+            <a href={`https://www.youtube.com/${channelDetails.channelHandle}`}><h3>{videoDetails.channelTitle}</h3></a>
             <p>{channelDetails.subscriberCountText} Inscritos</p>
           </div>
           <button className="sub-btn">Inscrever-se</button>
