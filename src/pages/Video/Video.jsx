@@ -87,6 +87,7 @@ const Video = () => {
                 videoDescription={relatedVideo.description}
                 videoId={relatedVideo.videoId}
                 channelId={relatedVideo.channelHandle}
+                channelHandle={relatedVideo.channelHandle}
                 publishedTimeText={relatedVideo.publishedTimeText}
                 isLiveContent={relatedVideo.isLiveContent}
               />
