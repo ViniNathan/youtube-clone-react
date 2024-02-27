@@ -1,3 +1,6 @@
+a {
+    text-decoration: none;
+}
 .video-suggest-card {
     display: grid;
     grid-template-columns: 170px 1fr;
@@ -42,7 +45,12 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
     font-weight: 400;
-    color: rgb(109, 109, 109);
+    color: rgb(150, 150, 150);
+    transition: 0.1s ease-in-out;
+}
+
+.suggest-details p:first-child:hover {
+    color: aliceblue;
 }
 
 .video-length {

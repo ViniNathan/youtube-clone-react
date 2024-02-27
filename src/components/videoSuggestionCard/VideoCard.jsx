@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom' 
 import './videoCard.css'
 
-const VideoCard = ({thumb, time, channelTitle ,videoTitle, views, videoId, channelId, publishedTimeText, isLiveContent}) => {
+const VideoCard = ({thumb, time, channelTitle ,videoTitle, views, videoId, channelId, publishedTimeText, isLiveContent, channelHandle}) => {
 
   const truncateString = (title, maxWords) => {
     const words = title.split(' ');
@@ -22,19 +22,23 @@ const VideoCard = ({thumb, time, channelTitle ,videoTitle, views, videoId, chann
   }
 
   return (
-    <div className="video-suggest-card">
-        <Link to ={`../video/${videoId}`} className="video-suggest-thumb">
+    <Link to ={`../video/${videoId}`}>
+      <div className="video-suggest-card">
+        <div className="video-suggest-thumb">
           <img src={thumb} alt="thumb" />
-        </Link>
-        <div className="video-length"><p>{time}</p></div>
-        <Link to ={`../video/${videoId}`} className="video-suggest-title">
-          <div>{truncateString(videoTitle, 9)}</div>
-        </Link>
-        <div className="suggest-details">
-            <p>{truncateString(channelTitle, 3)}</p>
-            <p>{views} • {checkLive(isLiveContent)}</p>
         </div>
-    </div>
+        <div className="video-length"><p>{time}</p></div>
+        <div className="video-suggest-title">
+          <div>{truncateString(videoTitle, 9)}</div>
+        </div>
+        <div className="suggest-details">
+          <a href ={`https://youtube.com/${channelHandle ? channelHandle : channelId}`}>
+            <p>{truncateString(channelTitle, 3)}</p>
+          </a>
+          <p>{views} • {checkLive(isLiveContent)}</p>
+        </div>
+      </div>
+    </Link>
   )
 }
 
