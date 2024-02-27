@@ -15,3 +15,12 @@ export const formatDate = (dateString) => {
     const options = { day: 'numeric', month: 'long', year: 'numeric' };
     return date.toLocaleDateString('pt-BR', options);
 };
+
+export const truncateString = (title, maxWords) => {
+  const words = title.split(' ');
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(' ') + '...';
+  } else {
+    return title;
+  }
+};

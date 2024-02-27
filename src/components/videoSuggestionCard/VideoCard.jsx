@@ -1,17 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom' 
+import { truncateString } from '../../utils/functions'
 import './videoCard.css'
 
 const VideoCard = ({thumb, time, channelTitle ,videoTitle, views, videoId, channelId, publishedTimeText, isLiveContent, channelHandle}) => {
-
-  const truncateString = (title, maxWords) => {
-    const words = title.split(' ');
-    if (words.length > maxWords) {
-      return words.slice(0, maxWords).join(' ') + '...';
-    } else {
-      return title;
-    }
-  };
 
   const checkLive = (isLiveContent) => {
     if (isLiveContent === true) {
