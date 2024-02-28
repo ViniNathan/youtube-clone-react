@@ -172,3 +172,15 @@ nav {
     margin: 0 1rem;
     font-size: 1.2rem;
 }
+
+
+@media screen and (max-width: 400px) {
+    nav {
+        margin: 0;
+        padding: 0.5rem;
+        grid-template-rows: 0.2fr 0.8fr;
+    }
+    .nav-right {
+        justify-content: flex-end;
+    }
+}
