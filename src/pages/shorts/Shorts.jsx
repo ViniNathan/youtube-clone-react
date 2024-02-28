@@ -3,6 +3,7 @@ import { fetchShorts, fetchNextShorts } from '../../utils/videoServiceApi'
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { BiSolidLike , BiSolidDislike} from "react-icons/bi";
 import { MdComment } from "react-icons/md";
+import { truncateString } from '../../utils/functions';
 import './shorts.css'
 
 const Shorts = () => {
@@ -48,7 +49,7 @@ const Shorts = () => {
               <img src={shortsDetails.channelThumbnail[2].url} alt="" className='channel-imgin'/>
               <h3>{shortsDetails.channelTitle}</h3>
             </div>
-            <p>{shortsDetails.title}</p>
+            <p>{truncateString(shortsDetails.title, 7)}</p>
           </div>
         </div>
       )}
