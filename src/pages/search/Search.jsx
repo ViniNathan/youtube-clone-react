@@ -82,7 +82,7 @@ const Search = () => {
     if (screenWidth < 768) {
       return 3; // Exibe 3 shorts para telas menores que 768px
     } else if (screenWidth < 1366) {
-      return 4; // Exibe 5 shorts para telas entre 768px e 1024px
+      return 4; // Exibe 4 shorts para telas entre 768px e 1024px
     } else {
       return 5; // Exibe 7 shorts para telas maiores que 1024px
     }
