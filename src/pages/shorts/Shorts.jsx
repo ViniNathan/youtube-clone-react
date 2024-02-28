@@ -33,15 +33,17 @@ const Shorts = () => {
     <div>
       <Sidebar/>
       {shortsDetails && (
-        <div className="shorts-grid">
+        <div className="short-container">
           <div className="shorts-card">
           <iframe width="315" height="560" src={`https://www.youtube.com/embed/${shortsDetails.videoId}?rel=0&autoplay=1&controls=0`} frameborder="0"></iframe>
           </div>
-          <div className="shorts-button s-like"><BiSolidLike/></div>
-          <div className="shorts-button s-dislike"><BiSolidDislike/></div>
-          <div className="shorts-button comment"><MdComment/></div>
+          <div className="buttons-wrapper">
+            <div className="shorts-button"><BiSolidLike/></div>
+            <div className="shorts-button"><BiSolidDislike/></div>
+            <div className="shorts-button"><MdComment/></div>
+          </div>
           <img src={shortsDetails.channelThumbnail[2].url} alt="" className="channel-imgout"/>
-          <div className="shorts-details">
+          <div className="shorts-details-container">
             <div className="shorts-channel-details">
               <img src={shortsDetails.channelThumbnail[2].url} alt="" className='channel-imgin'/>
               <h3>{shortsDetails.channelTitle}</h3>
