@@ -239,6 +239,7 @@
 .video-description a {
     color: #00a2ff;
     text-decoration: none;
+    word-wrap: break-word;
 }
 
 .related-videos {
