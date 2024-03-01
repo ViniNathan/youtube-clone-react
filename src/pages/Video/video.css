@@ -378,3 +378,19 @@
         grid-row: 6 / 7;
     }
 }
+
+@media screen and (max-width: 425px) {
+    .videopage-grid {
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+        grid-template-rows: 92vw max-content max-content max-content max-content max-content;
+    }
+    .video-screen iframe {
+        height: 90vw;
+        border-radius: 0;
+    }
+
+    .video-title {
+        font-size: 1.2rem;
+    }
+}
