@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { VscMenu } from "react-icons/vsc";
 import { IoMdPlay, IoIosSearch } from "react-icons/io";
-import userProfile from '../../assets/user_profile.jpg'
+import userProfile from '../../assets/user_profile.jpeg'
 import './navbar.css'
 
 

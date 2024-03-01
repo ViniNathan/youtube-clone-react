@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import userProfile from '../../assets/user_profile.jpg';
+import userProfile from '../../assets/user_profile.jpeg';
 import { Link } from 'react-router-dom';
 import { fetchVideoData } from '../../utils/home-api';
 import { formatViews } from '../../utils/functions';
