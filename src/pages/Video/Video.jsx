@@ -47,7 +47,7 @@ const Video = () => {
       {videoDetails && channelDetails && relatedDetails && commentsDetails? (
         <>
           <div className="video-screen">
-            <iframe src={`https://www.youtube.com/embed/${videoId}?autoplay=1&showinfo=0&controls=1&autohide=1&modestbranding=1&rel=0&fs=0`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            <iframe src={`https://www.youtube.com/embed/${videoId}?autoplay=1&showinfo=0&controls=1&autohide=1&modestbranding=1&rel=0&fs=1`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
           </div>
           <div className="video-title">{videoDetails.title}</div>
           <div className="video-channel">

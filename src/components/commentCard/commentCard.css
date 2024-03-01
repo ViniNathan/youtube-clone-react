@@ -5,6 +5,7 @@
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1.1rem;
+    width: 100%;
 }
 
 .profile-img {
