@@ -3,7 +3,6 @@ import { GoHomeFill } from "react-icons/go";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdSubscriptions } from "react-icons/md";
 import { Link } from 'react-router-dom'
-import { Shorts } from '../../pages/index.js'
 import './sidebar.css'
 
 const Sidebar = () => {
