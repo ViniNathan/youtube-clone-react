@@ -120,6 +120,15 @@ nav {
     align-items: center;
 }
 
+.search-btn {
+    display: none;
+}
+
+.search-bar {
+    display: none;
+}
+
+
 .nav-right {
     grid-area: 1 / 3 / 2 / 4;
     display: flex;
@@ -182,5 +191,9 @@ nav {
     }
     .nav-right {
         justify-content: flex-end;
+    }
+
+    .nav-input {
+        display: none;
     }
 }
