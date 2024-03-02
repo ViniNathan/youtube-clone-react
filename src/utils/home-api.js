@@ -1,21 +1,25 @@
 import axios from "axios";
 
-export const fetchVideoData = async () => {
+export const fetchTrending = async () => {
   const options = {
     method: 'GET',
-    url: 'https://youtube-v2.p.rapidapi.com/trending/',
-    params: {lang: 'pt', country: 'br', section: 'Now'},
+    url: 'https://yt-api.p.rapidapi.com/trending',
+    params: {
+      geo: 'BR',
+      lang: 'pt'
+    },
     headers: {
       'X-RapidAPI-Key': '4373c0479dmshd60398751fc667cp1a0de0jsne460c0931c68',
-      'X-RapidAPI-Host': 'youtube-v2.p.rapidapi.com'
+      'X-RapidAPI-Host': 'yt-api.p.rapidapi.com'
     }
   };
-
+  
   try {
     const response = await axios.request(options);
-    return response.data.videos;
-  } catch (error) {
-    console.error(error);
-    return null;
+    return response.data;
+  }
+  catch (error) {
+    console.error('Erro ao realizar a pesquisa de trending:', error);
+    throw error;
   }
 };
