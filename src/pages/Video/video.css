@@ -281,7 +281,7 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1050px) {
     .videopage-grid {
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 52vw max-content max-content max-content max-content max-content;
