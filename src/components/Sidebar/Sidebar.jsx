@@ -26,7 +26,7 @@ const Sidebar = () => {
             
             <div className="sidebar-card">
                 <MdSubscriptions className='side-icon'/>
-                <h3>Inscrições</h3>
+                <h3>Portfolio</h3>
             </div>
         </div>
     </div>
