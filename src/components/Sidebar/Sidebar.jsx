@@ -23,8 +23,8 @@ const Sidebar = () => {
     fetchData();
   }, []);
 
-  // Gerar um número aleatório entre 0 e 10
-  const randomIndex = Math.floor(Math.random() * 10);
+  // Gerar um número aleatório entre 0 e 15
+  const randomIndex = Math.floor(Math.random() * 15);
 
   return (
     <div className='sidebar'>
@@ -37,7 +37,7 @@ const Sidebar = () => {
             </Link>
 
             {shortsVideo && (
-              <Link to={`shorts/${shortsVideo.data[randomIndex].videoId}`} className='side-buttons'>
+              <Link to={`/shorts/${shortsVideo.data[randomIndex].videoId}`} className='side-buttons'>
                   <div className="sidebar-card">
                       <SiYoutubeshorts className='side-icon'/>
                       <h3>Shorts</h3>
