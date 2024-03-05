@@ -3,7 +3,7 @@ import { fetchShorts, fetchNextShorts } from '../../utils/videoServiceApi'
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { BiSolidLike , BiSolidDislike} from "react-icons/bi";
 import { MdComment } from "react-icons/md";
-import { truncateString } from '../../utils/functions';
+import { truncateString , formatViews} from '../../utils/functions';
 import './shorts.css'
 
 const Shorts = () => {
@@ -18,10 +18,11 @@ const Shorts = () => {
       try {
         const shortsData = await fetchShorts(query);
         setShortsDetails(shortsData);
+        console.log(shortsData);
 
         const nextShortsData = await fetchNextShorts(query);
         setNextShortsDetails(nextShortsData);
-        console.log(nextShortsData.data);
+        // console.log(nextShortsData.data);
       } catch (error) {
         console.error('Erro ao buscar os detalhes do shorts:', error);
       }
@@ -40,8 +41,11 @@ const Shorts = () => {
           </div>
           <div className="buttons-wrapper">
             <div className="shorts-button"><BiSolidLike/></div>
+            <p>{shortsDetails.likeCountText}</p>
             <div className="shorts-button"><BiSolidDislike/></div>
+            <p>Não gostei</p>
             <div className="shorts-button"><MdComment/></div>
+            <p>{formatViews(shortsDetails.commentCount)}</p>
           </div>
           <img src={shortsDetails.channelThumbnail[2].url} alt="" className="channel-imgout"/>
           <div className="shorts-details-container">
