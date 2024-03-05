@@ -37,7 +37,7 @@ const Shorts = () => {
       {shortsDetails && (
         <div className="short-container">
           <div className="shorts-card">
-          <iframe width="315" height="560" src={`https://www.youtube.com/embed/${shortsDetails.videoId}?rel=0&autoplay=1&controls=0`} frameborder="0"></iframe>
+          <iframe src={`https://www.youtube.com/embed/${shortsDetails.videoId}?rel=0&autoplay=1&controls=0`} frameborder="0"></iframe>
           </div>
           <div className="buttons-wrapper">
             <div className="shorts-button"><BiSolidLike/></div>
