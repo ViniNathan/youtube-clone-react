@@ -39,21 +39,23 @@ const Shorts = () => {
           <div className="shorts-card">
           <iframe src={`https://www.youtube.com/embed/${shortsDetails.videoId}?rel=0&autoplay=1&controls=0`} frameborder="0"></iframe>
           </div>
-          <div className="buttons-wrapper">
-            <div className="shorts-button"><BiSolidLike/></div>
-            <p>{shortsDetails.likeCountText}</p>
-            <div className="shorts-button"><BiSolidDislike/></div>
-            <p>Não gostei</p>
-            <div className="shorts-button"><MdComment/></div>
-            <p>{formatViews(shortsDetails.commentCount)}</p>
+          <div className="right-container">
+            <div className="buttons-wrapper">
+              <div className="shorts-button"><BiSolidLike/></div>
+              <p>{shortsDetails.likeCountText}</p>
+              <div className="shorts-button"><BiSolidDislike/></div>
+              <p>Não gostei</p>
+              <div className="shorts-button"><MdComment/></div>
+              <p>{formatViews(shortsDetails.commentCount)}</p>
+            </div>
+            <img src={shortsDetails.channelThumbnail[2].url} alt="" className="channel-imgout"/>
           </div>
-          <img src={shortsDetails.channelThumbnail[2].url} alt="" className="channel-imgout"/>
           <div className="shorts-details-container">
             <div className="shorts-channel-details">
               <img src={shortsDetails.channelThumbnail[2].url} alt="" className='channel-imgin'/>
               <h3>{shortsDetails.channelTitle}</h3>
             </div>
-            <p>{truncateString(shortsDetails.title, 7)}</p>
+            <p>{truncateString(shortsDetails.title, 6)}</p>
           </div>
         </div>
       )}
