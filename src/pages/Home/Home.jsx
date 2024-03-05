@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { fetchTrending } from '../../utils/home-api';
-import { formatViews } from '../../utils/functions';
+import { formatViews, removeDuplicateVideos } from '../../utils/functions';
 import SearchShortsCard from '../../components/SearchShortsCard/SearchShortsCard';
 import { SiYoutubeshorts } from "react-icons/si";
 import { Link } from 'react-router-dom';
@@ -21,19 +21,6 @@ const Home = () => {
     fetchData();
   }, []);
 
-  const removeDuplicateVideos = (videos) => {
-    const uniqueVideos = [];
-    const ids = new Set();
-  
-    videos.forEach(video => {
-      if (!ids.has(video.videoId)) {
-        uniqueVideos.push(video);
-        ids.add(video.videoId);
-      }
-    });
-  
-    return uniqueVideos;
-  };
 
   return (
     <div>

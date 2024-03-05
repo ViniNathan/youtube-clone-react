@@ -24,3 +24,19 @@ export const truncateString = (title, maxWords) => {
     return title;
   }
 };
+
+
+
+export const removeDuplicateVideos = (videos) => {
+  const uniqueVideos = [];
+  const ids = new Set();
+
+  videos.forEach(video => {
+    if (!ids.has(video.videoId)) {
+      uniqueVideos.push(video);
+      ids.add(video.videoId);
+    }
+  });
+
+  return uniqueVideos;
+};
