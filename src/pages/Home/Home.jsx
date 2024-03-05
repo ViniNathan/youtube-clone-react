@@ -9,7 +9,6 @@ import './home.css';
 
 const Home = () => {
   const [videoData, setVideoData] = useState(null);
-  const [shortsData, setShortsData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
