@@ -27,7 +27,7 @@ const VideoCard = ({thumb, time, channelTitle ,videoTitle, views, videoId, chann
           <a href ={`https://youtube.com/${channelHandle ? channelHandle : channelId}`}>
             <p>{truncateString(channelTitle, 3)}</p>
           </a>
-          <p>{views} • {checkLive(isLiveContent)}</p>
+          <p>{views} visualizações • {checkLive(isLiveContent)}</p>
         </div>
       </div>
     </Link>
