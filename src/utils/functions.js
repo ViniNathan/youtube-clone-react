@@ -10,6 +10,18 @@ export const formatViews = (views) => {
     }
 };
 
+export const formatLikes = (likes) => {
+    if (likes >= 1000000000) {
+    return (likes / 1000000000).toFixed(1).replace('.', ',') + ' bi de';
+    } else if (likes >= 1000000) {
+      return (likes / 1000000).toFixed(1).replace('.', ',') + ' mi';
+    } else if (likes >= 1000) {
+      return (likes / 1000).toFixed(1).replace('.', ',') + ' mil';
+    } else {
+      return likes;
+    }
+};
+
 export const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { day: 'numeric', month: 'long', year: 'numeric' };

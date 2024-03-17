@@ -5,7 +5,7 @@ import { PiShareFatLight } from 'react-icons/pi';
 import VideoCard from '../../components/videoSuggestionCard/VideoCard';
 import CommentCard from '../../components/commentCard/CommentCard';
 import { fetchVideoDetails, fetchChannelDetails, fetchRelated, fetchComments} from '../../utils/videoServiceApi';
-import { formatViews, formatDate } from '../../utils/functions';
+import { formatViews, formatLikes, formatDate } from '../../utils/functions';
 import './video.css';
 
 const Video = () => {
@@ -52,7 +52,7 @@ const Video = () => {
           <div className="video-title">{videoDetails.title}</div>
           <div className="video-channel">
             <a href={`https://www.youtube.com/${channelDetails.channelHandle ? channelDetails.channelHandle : channelDetails.channelId}`}>
-            <img src={videoDetails.channelThumbnail[2].url} alt="" />
+            <img src={channelDetails.avatar[2].url} alt="" />
             </a>
           </div>
           <div className="channel-details">
@@ -63,7 +63,7 @@ const Video = () => {
           <div className="btn-container">
             <button className="like">
               <BiLike />
-              <p>{videoDetails.likeCount}</p>
+              <p>{formatLikes(videoDetails.likeCount)}</p>
             </button>
             <div className="separator"></div>
             <button className="dislike">
